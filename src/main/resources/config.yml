@@ -1,0 +1,5 @@
+not-installed-message: "%plugin% is not installed!"
+# Format is plugin name : true | false
+# if true, the server will be stopped
+required-plugins:
+  multiverse: true

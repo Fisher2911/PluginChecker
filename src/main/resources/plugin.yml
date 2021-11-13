@@ -1,0 +1,4 @@
+name: PluginChecker
+version: '${version}'
+main: io.github.fisher2911.pluginchecker.PluginChecker
+api-version: 1.17
