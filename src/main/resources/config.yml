@@ -1,5 +1,7 @@
-not-installed-message: "%plugin% is not installed!"
+not-installed-message: "%plugin% is not installed, you can download it at %link%!"
 # Format is plugin name : true | false
 # if true, the server will be stopped
 required-plugins:
-  multiverse: true
+  multiverse:
+    stop-server: false
+    download-link: "www.example.com"

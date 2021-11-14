@@ -7,8 +7,6 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.logging.Logger;
 
 public final class PluginChecker extends JavaPlugin {
@@ -38,9 +36,15 @@ public final class PluginChecker extends JavaPlugin {
                         final Plugin check = pluginManager.getPlugin(plugin);
 
                         if (check == null) {
-                            logger.severe(errorMessage.replace("%plugin%", plugin));
-                            disable = disable || pluginSection.getBoolean(plugin);
+                            String downloadLink = pluginSection.getString(plugin + ".download-link");
 
+                            if (downloadLink == null) {
+                                downloadLink = "";
+                            }
+
+                            logger.severe(errorMessage.replace("%plugin%", plugin).
+                                    replace("%link%", downloadLink));
+                            disable = disable || pluginSection.getBoolean(plugin + ".stop-server");
                         }
                     }
 
